@@ -471,7 +471,7 @@ h1 {
     padding: 20px;
   }
   .allocation {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
   .container {
     width: 100%;
@@ -505,7 +505,8 @@ h1 {
     font-size: 18px;
   }
   .allocation {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
     gap: 8px;
   }
   .card {
