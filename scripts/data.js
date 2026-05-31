@@ -1,29 +1,21 @@
-export const UserData = {
-  totalBalance: 0,
+export const UserData = localStorage.getItem("UserData")
+  ? JSON.parse(localStorage.getItem("UserData"))
+  : {
+      totalBalance: 0,
 
-  allocationPercentages: {
-    savings: 0,
-    investment: 0,
-    utilities: 0,
-    flex: 0,
-  },
+      allocationPercentages: {
+        savings: 30,
+        investment: 40,
+        utilities: 20,
+        flex: 10,
+      },
 
-  buckets: {
-    savings: 0,
-    investment: 0,
-    utilities: 0,
-    flex: 0,
-  },
+      buckets: {
+        savings: 0,
+        investment: 0,
+        utilities: 0,
+        flex: 0,
+      },
 
-  history: [
-    {
-      id: null,
-      type: "deposit" | "withdrawal" | "edit",
-      category: "savings" | "investment" | "utilities" | "flex" | null,
-      amount: 0,
-      previousValue: 0,
-      newValue: 0,
-      timestamp: 0,
-    },
-  ],
-};
+      history: [],
+    };
