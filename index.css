@@ -490,7 +490,7 @@ h1 {
 
 @media (max-width: 420px) {
   .menu {
-    width: 50vw;
+    width: 60vw;
     left: -12rem;
     padding: 48px 12px 16px;
   }
