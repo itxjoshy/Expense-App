@@ -1,5 +1,6 @@
 import { UserData } from "./data.js";
 import { renderTable } from "./table.js";
+const totalBalance = document.getElementById("total-balance");
 
 let withdrawModalState = null;
 
@@ -27,6 +28,7 @@ function confirmWithdrawModal() {
   // your withdraw logic here
   closeWithdrawModal();
   renderTable();
+  totalBalance.innerHTML = `₦${(Number(UserData.totalBalance) - Number(amount)).toLocaleString()}`;
 }
 
 export const renderWithdrawModal = (category, available) => {
