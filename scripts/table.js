@@ -1,6 +1,7 @@
 import { UserData } from "./data.js";
 import { allocateFunds } from "../calcAmount.js";
 import { addHistory, renderMenu } from "./history.js";
+import { renderWithdrawModal } from "./widthdrawals.js";
 const bucket = UserData.buckets;
 const addBtn = document.getElementById("submit-btn");
 
@@ -22,8 +23,15 @@ export function renderTable() {
     row.innerHTML = `
     <td style = "text-transform: capitalize;">${key}</td>
     <td >₦${value.toLocaleString()}</td>
-    <td><button class="action-btn">Withdraw</button></td>
+    <td><button class="action-btn" id="withdraw-button" data-key = "${key}">Withdraw</button></td>
   `;
+
+    row.querySelector("#withdraw-button").addEventListener("click", () => {
+      const key = row.querySelector("#withdraw-button").dataset.key;
+      const available = bucket[key];
+      renderWithdrawModal(key, available);
+    });
+
     tableBody.appendChild(row);
   }
   totalBalance.innerHTML = `₦${UserData.totalBalance.toLocaleString()}`;
