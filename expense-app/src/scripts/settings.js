@@ -1,5 +1,5 @@
 import { UserData } from "./data.js";
-import { renderAllocationPercentages } from "./app.js";
+import { renderAllocationPercentages } from "../main.js";
 const settingsPanel = document.getElementById("settings-panel");
 export const openSettingsPanel = () => {
   settingsPanel.innerHTML = `

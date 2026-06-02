@@ -1,8 +1,9 @@
+import "./style.css";
 //user data
-import { UserData } from "./data.js";
-import { renderTable } from "./table.js";
-import { openSettingsPanel } from "./settings.js";
-import { openMenu } from "./history.js";
+import { UserData } from "./scripts/data.js";
+import { renderTable } from "./scripts/table.js";
+import { openSettingsPanel } from "./scripts/settings.js";
+import { openMenu } from "./scripts/history.js";
 const settingButton = document.getElementById("setting-button");
 const menuButton = document.getElementById("menu-button");
 

@@ -1,4 +1,4 @@
-import { UserData } from "./scripts/data.js";
+import { UserData } from "./data.js";
 
 export function allocateFunds(amount) {
   UserData.totalBalance += Number(amount);

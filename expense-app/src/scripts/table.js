@@ -1,5 +1,5 @@
 import { UserData } from "./data.js";
-import { allocateFunds } from "../calcAmount.js";
+import { allocateFunds } from "./calcAmount.js";
 import { addHistory, renderMenu } from "./history.js";
 import { renderWithdrawModal } from "./widthdrawals.js";
 const bucket = UserData.buckets;
