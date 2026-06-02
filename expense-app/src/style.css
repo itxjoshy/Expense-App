@@ -960,6 +960,16 @@ h1 {
 }
 
 @media (max-width: 420px) {
+  .card:has(.logo) {
+    padding: 28px 16px 24px;
+    width: 95%;
+  }
+  .card:has(.logo) .subtitle {
+    text-align: center;
+  }
+  .card .logo {
+    justify-self: center;
+  }
   .menu {
     width: 80vw;
     left: -80vw;

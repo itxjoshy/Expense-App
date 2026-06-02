@@ -21,7 +21,6 @@ export const renderAllocationPercentages = () => {
     </div>
 `;
 };
-console.log("API KEY:", import.meta.env.VITE_FIREBASE_API_KEY);
 //show login
 const showLogin = () => {
   document.body.innerHTML = `
