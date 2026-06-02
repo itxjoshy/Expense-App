@@ -43,6 +43,219 @@ body {
   line-height: 1.6;
   min-height: 100vh;
 }
+body.open {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ───────────────────────────────────────
+   LOGIN
+─────────────────────────────────────── */
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 36px 32px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow:
+    0 4px 24px rgba(28, 24, 38, 0.08),
+    var(--shadow-sm);
+  animation: fadeUp 0.3s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.logo svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 9px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-mid);
+  background: var(--surface);
+}
+
+input::placeholder {
+  color: var(--text-subtle);
+}
+
+input.error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.08);
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 40px;
+}
+
+.toggle-pw {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-subtle);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.toggle-pw:hover {
+  color: var(--text-muted);
+}
+
+.toggle-pw svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.forgot {
+  font-size: 12px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+
+.forgot:hover {
+  opacity: 0.75;
+}
+
+.error-msg {
+  font-size: 11px;
+  color: var(--danger);
+  min-height: 14px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+  margin-top: 6px;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+.btn-primary:active {
+  transform: scale(0.99);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ───────────────────────────────────────
+   MAIN APP
+─────────────────────────────────────── */
 
 /* ── Menu button ── */
 .menu-button {
@@ -66,6 +279,71 @@ body {
   letter-spacing: 0.01em;
 }
 
+#user-button {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: var(--shadow-sm);
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+  letter-spacing: 0.01em;
+}
+.acct_center {
+  background: var(--surface);
+  padding: 5px 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-90%, 25%);
+  height: max-content;
+  width: max-content;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: none;
+  h3,
+  p {
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 7px;
+  }
+  h3 {
+    font-weight: 600;
+    color: var(--accent);
+  }
+}
+.acct_center.open {
+  display: flex;
+  flex-direction: column;
+}
+#logout-button {
+  text-align: left;
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+  letter-spacing: 0.01em;
+}
 .menu-button:hover {
   color: var(--accent);
   border-color: var(--accent);
@@ -243,30 +521,6 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.09em;
   color: var(--accent);
-}
-
-/* ── Card ── */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 18px 20px;
-  margin-bottom: 10px;
-  box-shadow: var(--shadow-sm);
-}
-
-.card h2 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-
-.card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
 }
 
 /* ── Settings panel ── */
@@ -537,7 +791,6 @@ h1 {
   padding: 9px 13px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-
   font-family: var(--font);
   color: var(--text);
   background: var(--bg);
@@ -632,7 +885,10 @@ h1 {
   cursor: default;
 }
 
-/* ── Responsive ── */
+/* ───────────────────────────────────────
+   RESPONSIVE
+─────────────────────────────────────── */
+
 @media (max-width: 900px) {
   .menu {
     width: 16rem;

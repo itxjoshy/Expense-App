@@ -1,18 +1,7 @@
 import { UserData } from "./data.js";
-import { allocateFunds } from "./calcAmount.js";
-import { addHistory, renderMenu } from "./history.js";
+
 import { renderWithdrawModal } from "./widthdrawals.js";
 const bucket = UserData.buckets;
-const addBtn = document.getElementById("submit-btn");
-
-addBtn.addEventListener("click", () => {
-  const amountIn = document.getElementById("amount").value;
-  document.getElementById("amount").value = "";
-  allocateFunds(amountIn);
-  addHistory(amountIn);
-  renderMenu();
-  renderTable();
-});
 
 export function renderTable() {
   const tableBody = document.querySelector(".finance-table tbody");

@@ -1,7 +1,6 @@
 import { UserData } from "./data.js";
-const menu = document.querySelector(".menu");
-
 export const openMenu = () => {
+  const menu = document.querySelector(".menu");
   menu.classList.toggle("open");
   console.log(UserData.history);
   renderMenu();
@@ -23,6 +22,7 @@ export const addHistory = (amount) => {
   UserData.history.push(newItem);
 };
 export const renderMenu = () => {
+  const menu = document.querySelector(".menu");
   menu.innerHTML = `
   <h2>History</h2>
   ${
